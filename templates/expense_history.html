@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h2 class="mb-4">
+         Expense History
+    </h2>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for e in expenses %}
+
+            <tr>
+
+                <td>{{ e.id }}</td>
+
+                <td>{{ e.date }}</td>
+
+                <td>{{ e.title }}</td>
+
+                <td>{{ e.category }}</td>
+
+                <td>${{ e.amount }}</td>
+
+                <td>
+
+                    <a
+                        href="/edit/{{ e.id }}"
+                        class="btn btn-primary btn-sm"
+                    >
+                    <i class="bi bi-pencil-square"></i>
+                        Edit
+                    </a>
+
+                    <a
+                        href="/delete/{{ e.id }}"
+                        class="btn btn-danger btn-sm"
+                    >
+                    <i class="bi bi-trash3"></i>
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
