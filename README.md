@@ -24,6 +24,7 @@ Users can add transactions, view history, and monitor balance in real time.
 - Flask-SQLAlchemy 
 - MySQL 
 - PyMySQL 
-- HTML (Jinja2 Templates) 
+- HTML (Jinja2 Templates)
+- Bootstrap
 
 ---
