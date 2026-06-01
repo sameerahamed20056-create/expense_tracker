@@ -2,76 +2,49 @@
 
 {% block content %}
 
-<div class="card shadow p-5">
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
 
-    <h2 class="mb-4">
-        <i class="bi bi-plus-circle"></i> Add Transaction
-    </h2>
+        <div class="card p-4 mt-3">
 
-    <form action="/add" method="POST">
+            <h3 class="mb-4 text-center fw-bold">
+                <i class="bi bi-plus-circle text-success"></i>
+                Add Transaction
+            </h3>
 
-        <div class="mb-3">
+            <form action="/add" method="POST">
 
-            <label class="form-label">
-                Title
-            </label>
+                <!-- Title -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Title</label>
+                    <input type="text" name="title" class="form-control form-control-lg" placeholder="Enter title" required>
+                </div>
 
-            <input
-                type="text"
-                name="title"
-                class="form-control"
-                required
-            >
+                <!-- Amount -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Amount</label>
+                    <input type="number" name="amount" class="form-control form-control-lg" placeholder="Enter amount" required>
+                </div>
 
-        </div>
+                <!-- Category -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Category</label>
+                    <select name="category" class="form-select form-select-lg">
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </div>
 
+                <!-- Button -->
+                <button class="btn btn-success btn-lg w-100 mt-3">
+                    <i class="bi bi-check-circle"></i> Add Transaction
+                </button>
 
-        <div class="mb-3">
-
-            <label class="form-label">
-                Amount
-            </label>
-
-            <input
-                type="number"
-                name="amount"
-                class="form-control"
-                required
-            >
-
-        </div>
-
-
-        <div class="mb-3">
-
-            <label class="form-label">
-                Category
-            </label>
-
-            <select
-                name="category"
-                class="form-select"
-            >
-
-                <option value="Income">
-                    Income
-                </option>
-
-                <option value="Expense">
-                    Expense
-                </option>
-
-            </select>
+            </form>
 
         </div>
 
-
-        <button class="btn btn-success w-100">
-            Add Transaction
-        </button>
-
-    </form>
-
+    </div>
 </div>
 
 {% endblock %}
