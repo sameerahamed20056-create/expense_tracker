@@ -2,73 +2,69 @@
 
 {% block content %}
 
-<div class="container">
+<div class="card shadow p-4">  <h2 class="mb-4">  
+     Expense History  
+</h2>  
 
-    <!-- Title -->
-    <div class="text-center mb-4">
-        <h2 class="fw-bold">
-             Expense History
-        </h2>
-        <p class="text-muted">All your income & expense records</p>
-    </div>
+<table class="table table-bordered table-hover">  
 
-    <!-- Card wrapper -->
-    <div class="card p-3">
+    <thead class="table-dark">  
 
-        <div class="table-responsive">
+        <tr>  
 
-            <table class="table table-hover align-middle">
+            <th>ID</th>  
+            <th>Date</th>  
+            <th>Title</th>  
+            <th>Category</th>  
+            <th>Amount</th>  
+            <th>Actions</th>  
 
-                <thead class="table-dark text-center">
+        </tr>  
 
-                    <tr>
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Actions</th>
-                    </tr>
+    </thead>  
 
-                </thead>
+    <tbody>  
 
-                <tbody class="text-center">
+        {% for e in expenses %}  
 
-                    {% for e in expenses %}
+        <tr>  
 
-                    <tr>
+            <td>{{ e.id }}</td>  
 
-                        <td class="fw-semibold">{{ e.id }}</td>
+            <td>{{ e.date }}</td>  
 
-                        <td>{{ e.date }}</td>
+            <td>{{ e.title }}</td>  
 
-                        <td class="fw-semibold">{{ e.title }}</td>
+            <td>{{ e.category }}</td>  
 
-                        <td>
-                            {% if e.category == 'Income' %}
-                                <span class="badge bg-success">Income</span>
-                            {% else %}
-                                <span class="badge bg-danger">Expense</span>
-                            {% endif %}
-                        </td>
+            <td>${{ e.amount }}</td>  
 
-                        <td class="fw-bold">
-                            ${{ e.amount }}
-                        </td>
+            <td>  
 
-                        <td>
+                <a  
+                    href="/edit/{{ e.id }}"  
+                    class="btn btn-primary btn-sm"  
+                >  
+                <i class="bi bi-pencil-square"></i>  
+                    Edit  
+                </a>  
 
-                            <a href="/edit/{{ e.id }}" class="btn btn-primary btn-sm me-1">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
+                <a  
+                    href="/delete/{{ e.id }}"  
+                    class="btn btn-danger btn-sm"  
+                >  
+                <i class="bi bi-trash3"></i>  
+                    Delete  
+                </a>  
 
-                            <a href="/delete/{{ e.id }}" class="btn btn-danger btn-sm"
-                               onclick="return confirm('Are you sure to delete this?')">
-                                <i class="bi bi-trash3"></i>
-                            </a>
+            </td>  
 
-                        </td>
+        </tr>  
 
-                    </tr>
+        {% endfor %}  
 
-                    {% endfor %}
+    </tbody>  
+
+</table>
+
+</div>  {% endblock %}

@@ -2,78 +2,57 @@
 
 {% block content %}
 
-<div class="container">
+<div class="row">  <!--Income-->  
+<div class="col-md-4">  
 
-    <!-- Title -->
-    <div class="text-center mb-4">
-        <h2 class="fw-bold">
-             Dashboard Overview
-        </h2>
-        <p class="text-muted">Your income, expense and balance summary</p>
-    </div>
+    <div class="card shadow p-4 text-center">  
 
-    <!-- Cards Row -->
-    <div class="row g-4">
+        <h3>  
+            <i class="bi bi-wallet2"></i>  
+             Total Income</h3>  
 
-        <!-- Income -->
-        <div class="col-12 col-md-4">
+        <h1 class="text-success">  
+            ${{ total_income }}  
+        </h1>  
 
-            <div class="card p-4 text-center h-100">
+    </div>  
 
-                <div class="mb-2 text-success fs-2">
-                    <i class="bi bi-wallet2"></i>
-                </div>
+</div>  
 
-                <h5 class="text-muted">Total Income</h5>
 
-                <h2 class="fw-bold text-success">
-                    ${{ total_income }}
-                </h2>
+<!--Expense-->  
+<div class="col-md-4">  
 
-            </div>
+    <div class="card shadow p-4 text-center">  
 
-        </div>
+        <h3>  
+            <i class="bi bi-cash-stack"></i>  
+             Total Expense</h3>  
 
-        <!-- Expense -->
-        <div class="col-12 col-md-4">
+        <h1 class="text-danger">  
+            ${{ total_expense }}  
+        </h1>  
 
-            <div class="card p-4 text-center h-100">
+    </div>  
 
-                <div class="mb-2 text-danger fs-2">
-                    <i class="bi bi-cash-stack"></i>
-                </div>
+</div>  
 
-                <h5 class="text-muted">Total Expense</h5>
 
-                <h2 class="fw-bold text-danger">
-                    ${{ total_expense }}
-                </h2>
+<!--Remaining-->  
+<div class="col-md-4">  
 
-            </div>
+    <div class="card shadow p-4 text-center">  
 
-        </div>
+        <h3>  
+            <i class="bi bi-piggy-bank"></i>  
+             Remaining</h3>  
 
-        <!-- Remaining -->
-        <div class="col-12 col-md-4">
+        <h1 class="text-primary">  
+            ${{ remaining }}  
+        </h1>  
 
-            <div class="card p-4 text-center h-100">
-
-                <div class="mb-2 text-primary fs-2">
-                    <i class="bi bi-piggy-bank"></i>
-                </div>
-
-                <h5 class="text-muted">Remaining Balance</h5>
-
-                <h2 class="fw-bold text-primary">
-                    ${{ remaining }}
-                </h2>
-
-            </div>
-
-        </div>
-
-    </div>
+    </div>  
 
 </div>
 
-{% endblock %}
+</div>  {% endblock %}
