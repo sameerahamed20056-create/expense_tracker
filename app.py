@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models import db, Expense
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
 #MySQL connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:sameer@localhost/expense_tracker'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
