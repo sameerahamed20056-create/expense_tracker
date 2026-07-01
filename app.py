@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models import db, Expense
 from datetime import datetime
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -16,6 +19,7 @@ db.init_app(app)
 @app.route('/')
 def dashboard():
 
+    
     expenses = Expense.query.order_by(Expense.date.desc()).all()
 
     total_income = sum(e.amount for e in expenses if e.category == 'Income')
